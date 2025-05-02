@@ -1,6 +1,6 @@
-# YOLO For 3D Object Detection
+# YOLO 11 For 3D Object Detection and Tracking from monocular camera ONLY
 
-### This Fork has the following changes frinn the [original Repo](https://github.com/ruhyadi/YOLO3D):
+### This Fork has the following changes compared to the [original Repo](https://github.com/ruhyadi/YOLO3D):
 * newer python, etc
 * YOLO 11
 * Object Tracking
@@ -24,8 +24,9 @@ For installation you can use virtual environment like conda, e.g.:
 Create conda environment
 ```
 conda create -n yolo3d python=3.12
+conda activate yolo3d
 ```
-Install PyTorch and torchvision. If your GPU doesn't support it, please follow [Nelson Liu blogs](https://github.com/nelson-liu/pytorch-manylinux-binaries). 
+Install PyTorch and torchvision.
 ```
 pip install torch torcvision
 ```
