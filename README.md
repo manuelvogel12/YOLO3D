@@ -1,5 +1,15 @@
 # YOLO For 3D Object Detection
 
+### This Fork has the following changes frinn the [original Repo](https://github.com/ruhyadi/YOLO3D):
+* newer python, etc
+* YOLO 11
+* Object Tracking
+* More Visualization
+* ...
+
+ORIGINAL README:
+
+
 #### Note
 I have created a new repository of improvements of YOLO3D wrapped in pytorch lightning and more various object detector backbones, currently on development. Please check [ruhyadi/yolo3d-lightning](https://github.com/ruhyadi/yolo3d-lightning).
 
@@ -8,33 +18,22 @@ Unofficial implementation of [Mousavian et al](https://arxiv.org/abs/1612.00496)
 ![inference](docs/demo.gif)
 
 ## Installation
-For installation you can use virtual environment like anaconda or using docker image. For anaconda follow:
+For installation you can use virtual environment like conda, e.g.:
 
-### Ananconda Virtual Env
+### Conda Virtual Env
 Create conda environment
 ```
-conda create -n yolo3d python=3.8 numpy
+conda create -n yolo3d python=3.12
 ```
-Install PyTorch and torchvision version 1.8 above. If your GPU doesn't support it, please follow [Nelson Liu blogs](https://github.com/nelson-liu/pytorch-manylinux-binaries). 
+Install PyTorch and torchvision. If your GPU doesn't support it, please follow [Nelson Liu blogs](https://github.com/nelson-liu/pytorch-manylinux-binaries). 
 ```
-pip install torch==1.8.1 torcvision==0.9.1
+pip install torch torcvision
 ```
 Last, install requirements
 ```
 pip install -r requirements.txt
 ```
 
-### Docker Engine 
-Docker engine is easy way to install all you need. Pull docker image from repository:
-```
-docker pull ruhyadi/yolo3d:latest
-```
-run docker container from docker image with
-```
-cd ${YOLO3D_DIR}
-./runDocker.sh
-```
-You will get in to docker container interactive terminal. You can run inference code or flask app, follow code below.
 
 ### Download Pretrained Weights
 In order to run inference code or resuming training, you can download pretrained ResNet18 or VGG11 model. I have train model with 10 epoch each. You can download model with `resnet18` or `vgg11` for `--weights` arguments.
@@ -47,16 +46,13 @@ python get_weights.py --weights resnet18
 For inference with pretrained model you can run code below. It can be run in conda env or docker container. 
 ```
 python inference.py \
-    --weights yolov5s.pt \
     --source eval/image_2 \
     --reg_weights weights/resnet18.pkl \
     --model_select resnet18 \
-    --output_path runs/ \
     --show_result --save_result
 ```
-Inference can be run on Colab Notebook, please visit [this link](https://colab.research.google.com/drive/1vhgGRRDqHEqsrqZXBjBJHDFWJk9Pw0qZ?usp=sharing).
 
-## Training
+## Training (NOT ADJUSTED YET)
 YOLO3D model can be train with PyTorch or PyTorch Lightning. In order to train you need API KEY for [comet.ml](https://www.comet.ml) (visualize your training loss/accuracy). Follow comet.ml documentation to get API key.
 ```
 python train.py \

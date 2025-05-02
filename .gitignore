@@ -25,6 +25,8 @@
 
 storage.googleapis.com
 runs/*
+output/*
+eval/waymo*
 data/*
 data/images/*
 !data/*.yaml
